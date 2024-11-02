@@ -4,7 +4,7 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("This is the Magic Number Guess game where you guess the number ") ;
+        Console.WriteLine("This is the 'Magic Number Guess' game where you guess the number ") ;
         Console.WriteLine();
         Random number = new Random();
         double magic_number = number.Next(1, 100);
@@ -30,6 +30,7 @@ class Program
                 string play_again = Console.ReadLine().ToUpper();
                 if (play_again == "Y" || play_again == "YES")
                 {
+                    number_of_guess = 0;
                     magic_number = number.Next(1, 100);
                     continue;
                 }
