@@ -15,7 +15,9 @@ class Program
             Console.WriteLine("2. Display the journal");
             Console.WriteLine("3. Load the journal from a file");
             Console.WriteLine("4. Save the journal to a file");
-            Console.WriteLine("5. Exit");
+            Console.WriteLine("5. Delete a specific entry");
+            Console.WriteLine("6. Clear all journal entries");
+            Console.WriteLine("7. Exit");
             Console.Write("What would you like to do?: ");
 
             string choice = Console.ReadLine();
@@ -48,6 +50,32 @@ class Program
                     break;
 
                 case "5":
+                    journal.DisplayAll();
+                    Console.Write("Enter the entry number to delete: ");
+                    if (int.TryParse(Console.ReadLine(), out int entryIndex))
+                    {
+                        journal.DeleteEntry(entryIndex - 1); 
+                    }
+                    else
+                    {
+                        Console.WriteLine("\nInvalid input. Please enter a valid number.");
+                    }
+                    break;
+                
+                case "6":
+                    Console.Write("Are you sure you want to delete all entries? (yes/no): ");
+                    string confirm = Console.ReadLine().ToLower();
+                    if (confirm == "yes")
+                    {
+                        journal.ClearJournal();
+                    }
+                    else
+                    {
+                        Console.WriteLine("\nOperation canceled.");
+                    }
+                    break;
+                
+                case "7":
                     running = false;
                     Console.WriteLine("Goodbye");
                     break;

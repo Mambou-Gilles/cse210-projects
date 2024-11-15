@@ -14,10 +14,16 @@ public class Journal {
         }
 
         Console.WriteLine("Your Journal Entries:");
-        
-        foreach (Entry entry in _entries){
-            entry.Display();
+
+        for (int i = 0; i < _entries.Count; i++)
+        {
+            Console.WriteLine($"\nEntry {i + 1}:");
+            _entries[i].Display();
         }
+        
+        // foreach (Entry entry in _entries){
+        //     entry.Display();
+        // }
 
     }
 
@@ -44,4 +50,22 @@ public class Journal {
             Console.WriteLine("\n File not found");
         }
     }
+
+    public void DeleteEntry(int index)
+    {
+        if (index < 0 || index >= _entries.Count)
+        {
+            Console.WriteLine("\nInvalid entry number.");
+            return;
+        }
+        _entries.RemoveAt(index);
+        Console.WriteLine("\nEntry deleted.");
+    }
+
+    public void ClearJournal()
+    {
+        _entries.Clear();
+        Console.WriteLine("\nAll entries have been deleted.");
+    }
+
 }
