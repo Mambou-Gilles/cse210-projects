@@ -5,7 +5,7 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello Foundation2 World!");
+        Console.WriteLine("Hello Foundation2 World!\n");
         //Create the addresses
         var address1 = new Address("123 Joseph Smith", "Ohio", "Utah", "USA");
         Address address2 = new Address("456 Oak Str", "Toronto", "ON", "Canada");
@@ -30,16 +30,20 @@ class Program
         order2.AddProduct(product3);
 
         //Display the result for order 1
+        Console.WriteLine($"    Order 1   \n");
         Console.WriteLine(order1.GetPackingLabel());
         Console.WriteLine(order1.GetShippingLabel());
-        Console.WriteLine($"Total Cost: ${order1.TotalCost():F2}");
+        Console.WriteLine($"Total Cost: ${order1.TotalCost():F2}\n");
 
-        Console.WriteLine();
+        Console.WriteLine("**************************************\n");
         
         //Display result for order 2
+        Console.WriteLine($"    Order 2   \n");
         Console.WriteLine(order2.GetPackingLabel());
         Console.WriteLine(order2.GetShippingLabel());
-        Console.WriteLine($"Total Cost: ${order2.TotalCost():F2}");
+        Console.WriteLine($"Total Cost: ${order2.TotalCost():F2} \n");
+
+        Console.WriteLine("**************************************\n");
 
     }
 }
