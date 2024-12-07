@@ -17,25 +17,25 @@ class ListingActivity : Activity
         };
     }
 
-    // Run method for the listing activity
+  
     public void Run()
     {
         DisplayStartingMessage();
         DateTime endTime = DateTime.Now.AddSeconds(_duration);
 
 
-        // Clear the screen and prepare for the activity
+        
         Console.Clear();
         Console.WriteLine("Get ready...");
-        ShowSpinner(2);  // Short spinner before the prompt
+        ShowSpinner(2);  
 
-        // Display a random prompt and start the countdown
+        
         Console.WriteLine("\nList as many responses as you can to the following prompt:");
         string prompt = GetRandomPrompt();
         Console.WriteLine($"\n--- {prompt} ---");
 
         Console.Write("\nYou may begin in: ");
-        ShowCountDown(5);  // Countdown before user starts listing responses
+        ShowCountDown(5);  
 
         Console.WriteLine();
 
@@ -51,21 +51,21 @@ class ListingActivity : Activity
         DisplayEndingMessage();
     }
 
-    // Get a random prompt from the list
+   
     public string GetRandomPrompt()
     {
         Random rand = new Random();
         return _prompts[rand.Next(_prompts.Count)];
     }
 
-    // Get list item from the user and increment the count
+    
     public void GetListFromUser()
     {
         Console.Write("> ");
         string item = Console.ReadLine();
         if (!string.IsNullOrWhiteSpace(item))
         {
-            _count++;  // Increment the count for each valid response
+            _count++;  
         }
         
     }

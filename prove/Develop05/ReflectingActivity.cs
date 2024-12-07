@@ -29,7 +29,7 @@ class ReflectingActivity : Activity
         Console.Clear();
 
         Console.WriteLine("Get ready...");
-        ShowSpinner(3);  // Show a spinner for 3 seconds
+        ShowSpinner(3);  
         DisplayPrompt();
 
         Console.WriteLine("\nWhen you have something in mind, press Enter to continue.");
@@ -71,9 +71,9 @@ class ReflectingActivity : Activity
     {
         for (int i = 0; i < _questions.Count; i++)
         {
-            string question = GetRandomQuestion(); // Get a random question
+            string question = GetRandomQuestion(); // This gets a random question
             Console.Write($"> {question} ");
-            ShowSpinner(10); // Spinner for reflection time
+            ShowSpinner(10); // 10 seconds spinner reflection time
             
         }
     }

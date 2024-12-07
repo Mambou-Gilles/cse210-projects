@@ -14,7 +14,6 @@ class Activity
         _description = description;
     }
 
-    // Method to display the starting message
     public void DisplayStartingMessage()
     {
         Console.WriteLine($"Welcome to the {_name} activity!");
@@ -24,17 +23,17 @@ class Activity
        
     }
 
-    // Method to display the ending message
+
     public void DisplayEndingMessage()
     {
         Console.WriteLine($"Good job! You've successfully completed this activity.");
         ShowSpinner(6);
         Console.WriteLine();
         Console.WriteLine($"You spent {_duration} seconds on this {_name} activity.");
-        ShowSpinner(6);  // Show a spinner before exiting
+        ShowSpinner(6);  
     }
 
-    // Show a spinning animation for the given number of seconds
+
     public void ShowSpinner(int seconds)
     {
         // for (int i = 0; i < seconds; i++)
@@ -50,10 +49,10 @@ class Activity
         DateTime endTime = DateTime.Now.AddSeconds(seconds);
         while (DateTime.Now < endTime)
         {
-            Console.Write(spinner[spinnerIndex]);  // Print the current spinner character
-            spinnerIndex = (spinnerIndex + 1) % spinner.Count;  // Move to the next spinner character
-            Thread.Sleep(250); // Adjust the speed of the spinner
-            Console.SetCursorPosition(Console.CursorLeft - 1, Console.CursorTop);  // Move cursor back to overwrite the spinner character
+            Console.Write(spinner[spinnerIndex]);  
+            spinnerIndex = (spinnerIndex + 1) % spinner.Count;  
+            Thread.Sleep(250); 
+            Console.SetCursorPosition(Console.CursorLeft - 1, Console.CursorTop);  
         }
         Console.WriteLine(" ");
         
@@ -61,7 +60,6 @@ class Activity
     
     }
 
-    // Show a countdown for the given number of seconds
     public void ShowCountDown(int seconds)
     {
         for (int i = seconds; i > 0; i--)
