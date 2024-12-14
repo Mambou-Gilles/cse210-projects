@@ -1,3 +1,5 @@
+//For my extra I decided to add a menu option to delete a gola from the list of goals.
+
 public class GoalManager
 {
     private List<Goal> _goals;
@@ -21,7 +23,8 @@ public class GoalManager
             Console.WriteLine("  3. Save Goals");
             Console.WriteLine("  4. Load Goals");
             Console.WriteLine("  5. Record Event");
-            Console.WriteLine("  6. Quit");
+            Console.WriteLine("  6. Delete Goal");
+            Console.WriteLine("  7. Quit");
             Console.Write("Select a choice from the menu: ");
 
             string choice = Console.ReadLine();
@@ -44,6 +47,9 @@ public class GoalManager
                     RecordEvent();
                     break;
                 case "6":
+                    DeleteGoal();
+                    break;
+                case "7":
                     return;
                 default:
                     Console.WriteLine("Invalid choice. Press Enter to try again.");
@@ -223,6 +229,38 @@ public class GoalManager
         {
             Console.WriteLine("File not found. Press Enter to return to the menu.");
         }
+        Console.ReadLine();
+    }
+
+    public void DeleteGoal()
+    {
+        Console.Clear();
+        if (_goals.Count == 0)
+        {
+            Console.WriteLine("No goals to delete. Press Enter to return to the menu.");
+            Console.ReadLine();
+            return;
+        }
+
+        Console.WriteLine("The goals are:");
+        for (int i = 0; i < _goals.Count; i++)
+        {
+            Console.WriteLine($"{i + 1}. {_goals[i].GetDetailsString()}");
+        }
+
+        Console.Write("Enter the number of the goal to delete: ");
+        if (int.TryParse(Console.ReadLine(), out int choice) && choice > 0 && choice <= _goals.Count)
+        {
+            Goal goalToDelete = _goals[choice - 1];
+            _goals.RemoveAt(choice - 1);
+            Console.WriteLine($"Goal \"{goalToDelete.GetShortName()}\" deleted successfully.");
+        }
+        else
+        {
+            Console.WriteLine("Invalid choice. No goal deleted.");
+        }
+
+        Console.WriteLine("Press Enter to return to the menu.");
         Console.ReadLine();
     }
 
